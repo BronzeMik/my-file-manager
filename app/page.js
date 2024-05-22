@@ -12,7 +12,7 @@ export default function Home() {
           </div>
           <div className="">
             <Image
-            src={img}
+            src={img&&img}
             alt="My File Manager"
             width={900}
             />

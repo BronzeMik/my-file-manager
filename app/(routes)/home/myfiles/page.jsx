@@ -36,7 +36,7 @@ function page() {
     <div>
         <div className='grid grid-cols-1 md:grid-cols-3'>
             <div className='col-span-1 md:col-span-2 bg-gray-100 p-5'>
-                <FileList title="My Files" filesList={filesList}/>
+                <FileList title="My Files" filesList={filesList&&filesList}/>
             </div>
             <div className='bg-white p-5'>
             <Storage />

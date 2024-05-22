@@ -25,9 +25,8 @@ function page() {
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
+        // console.log(doc.id, " => ", doc.data());
         setFilesList(fileList=>([...fileList,doc.data()]))
-        console.log(filesList)
     }); 
       }
       useEffect(() =>{
@@ -38,7 +37,7 @@ function page() {
     <div>
         <div className='grid grid-cols-1 md:grid-cols-3'>
             <div className='col-span-1 md:col-span-2 bg-gray-100 p-5'>
-                <FileList title="Starred Files" filesList={filesList}/>
+                <FileList title="Starred Files" filesList={filesList&&filesList}/>
             </div>
             <div className='bg-white p-5'>
             <Storage />

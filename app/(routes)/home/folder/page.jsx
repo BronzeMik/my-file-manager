@@ -47,7 +47,7 @@ function page() {
     <div>
         <h2 className='p-5 mt-5 text-lg font-bold items-center'>My Folders</h2>
         <div className='grid gap-5 grid-cols-2 md:grid-cols-3 m-3'>
-            {foldersList.length >= 1 ? (foldersList?.map((item) => (
+            {foldersList?.length >= 1 ? (foldersList?.map((item) => (
                 <div onClick={() => onFolderClick(item.name,item.id)}>
                 <FolderItem folder={item}/>
                 </div>
