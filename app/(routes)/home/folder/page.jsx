@@ -8,25 +8,25 @@ import {app} from '../../../../config/FirebaseConfig'
 import { useRouter } from 'next/navigation'
 
 function page() {
-  const {user} = useUser()
-    const route = useRouter()
-    const db = getFirestore(app)
-    const [foldersList,setFoldersList] = useState([])
+  var {user} = useUser()
+    var route = useRouter()
+    var db = getFirestore(app)
+    var [foldersList,setFoldersList] = useState([])
     
     
     const getFolderList = async() => {
-        const q=query(collection(db,"Folders"),
+        var q=query(collection(db,"Folders"),
         where("createdBy","==",user?.primaryEmailAddress?.emailAddress));
     
-        let count = 0
-        const querySnapshot = await getDocs(q);
+        var count = 0
+        var querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
           
         // doc.data() is never undefined for query doc snapshots
         if(count > 500) {
             return
         } else {
-            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.id, " => ", doc.data());
             setFoldersList(foldersList=>([...foldersList,doc.data()]));
             count++
         } 
@@ -36,7 +36,7 @@ function page() {
         
         
     }
-    const onFolderClick = (folderName,folderId) => {
+    var onFolderClick = (folderName,folderId) => {
       route.push(`/home/folder/${folderId}?id=${folderId}&name=${folderName}`)
   }
   useEffect(() => {
