@@ -23,14 +23,7 @@ function FolderDetails() {
     const [filesList, setFilesList] = useState([]);
     const {newFileId} = useContext(NewFileId);
 
-    useEffect(() => {
-        setFoldersList([])
-        setParentFolderId(folderId)
-        if(parentFolderId == folderId) {
-            getFolderList(parentFolderId);
-            getFileList(parentFolderId);
-        }
-    }, [parentFolderId, newFolderId, newFileId])
+    
 
     const getFolderList = async(parentFolder) => {
         const q=query(collection(db,"Folders"),
@@ -130,6 +123,14 @@ function FolderDetails() {
         
         route.replace(`/home/folder/${id}?id=${id}&name=${name}`);
     }
+    useEffect(() => {
+      setFoldersList([])
+      setParentFolderId(folderId)
+      if(parentFolderId == folderId) {
+          getFolderList(parentFolderId);
+          getFileList(parentFolderId);
+      }
+  }, [parentFolderId, newFolderId, newFileId])
   return (
     <div><div className='p-5'>
     <SearchBar/>

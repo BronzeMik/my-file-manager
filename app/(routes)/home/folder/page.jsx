@@ -13,10 +13,7 @@ function page() {
     const db = getFirestore(app)
     const [foldersList,setFoldersList] = useState([])
     
-    useEffect(() => {
-        setFoldersList([])
-        user&&getFolderList()
-    }, [user])
+    
     const getFolderList = async() => {
         const q=query(collection(db,"Folders"),
         where("createdBy","==",user?.primaryEmailAddress?.emailAddress));
@@ -42,6 +39,10 @@ function page() {
     const onFolderClick = (folderName,folderId) => {
       route.push(`/home/folder/${folderId}?id=${folderId}&name=${folderName}`)
   }
+  useEffect(() => {
+    setFoldersList([])
+    user&&getFolderList()
+}, [user])
   return (
     <div>
         <h2 className='p-5 mt-5 text-lg font-bold items-center'>My Folders</h2>

@@ -13,10 +13,7 @@ function Home() {
     const db = getFirestore(app)
     const [foldersList,setFoldersList] = useState([])
     
-    useEffect(() => {
-        setFoldersList([])
-        user&&getFolderList()
-    }, [user])
+    
     const getFolderList = async() => {
         const q=query(collection(db,"Folders"),
         where("createdBy","==",user?.primaryEmailAddress?.emailAddress));
@@ -39,6 +36,10 @@ function Home() {
         
         
     }
+    useEffect(() => {
+      setFoldersList([])
+      user&&getFolderList()
+  }, [user])
   return (
     <div>
         {/* <SearchBar /> */}
