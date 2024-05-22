@@ -11,10 +11,10 @@ export const StorageContext = createContext();
 
 function layout({children}) {
 
-  const [parentFolderId, setParentFolderId] = useState();
-  const [newFolderId, setNewFolderId] = useState();
-  const [newFileId, setNewFileId] = useState();
-  const [storageAmount, setStorageAmount] = useState();
+  const [parentFolderId, setParentFolderId] = useState("");
+  const [newFolderId, setNewFolderId] = useState("");
+  const [newFileId, setNewFileId] = useState("");
+  const [storageAmount, setStorageAmount] = useState("");
   
   return (
     <ParentFolderIdContext.Provider value={{parentFolderId, setParentFolderId}}>
