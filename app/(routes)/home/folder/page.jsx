@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import FolderItem from '../_components/FolderItem'
 import { useEffect, useState } from 'react'

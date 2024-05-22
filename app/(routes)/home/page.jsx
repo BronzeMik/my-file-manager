@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import Home from './_components/Home'
 import FileList from './myfiles/_components/FileList'
@@ -12,7 +12,7 @@ import Storage from './_components/Storage/Storage'
 
 
 function page() {
-    const {setParentFolderId} = useContext(ParentFolderIdContext)
+    var {setParentFolderId} = useContext(ParentFolderIdContext)
     const [filesList, setFilesList] = useState([]);
     const {user} = useUser();
     const {newFileId} = useContext(NewFileId);
