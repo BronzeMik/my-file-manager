@@ -100,10 +100,9 @@ const unstarFile = async(file) => {
           height={20}
           on
         />}
-        <h2 className="text-[15px] truncate hover:underline"
+        <a href={file.imageUrl} target='_blank'><h2 className="text-[15px] truncate hover:underline"
         // onClick={()=>window.open(file.imageUrl)}
-        onClick={()=>window.open(file.imageUrl)}
-        >{file.name}</h2>
+        >{file.name}</h2></a>
       </div>
       <div className="grid grid-cols-4 place-content-start">
         <h2 className="text-[15px]">

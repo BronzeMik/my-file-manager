@@ -19,6 +19,8 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
-const analytics = getAnalytics(app);
 export const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+if (app.name && typeof window !== 'undefined') {
+  const analytics = getAnalytics(app);
+}
