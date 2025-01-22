@@ -1,12 +1,12 @@
 
 "use client"
 import { UserButton } from "@clerk/nextjs";
-import { Home, FolderOpen, Star, Trash2  } from "lucide-react";
+import { Home, FolderOpen, Star, Trash2, XIcon  } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Link from "next/link";
-
+import { useSidebar } from "@/context/SideBarContext";
 import CreateFolderModal from "../folder/_components/CreateFolderModal";
 import UploadFileModal from "../folder/_components/UploadFile/UploadFile";
 
@@ -40,10 +40,12 @@ function SideBar() {
   ]
 
   const path = usePathname();
+  const { isSidebarOpen } = useSidebar();
+  const {toggleSidebar} = useSidebar();
 
   return (
-    <div className='h-screen border-t-0  bg-white'>
-        
+    <div className={`fixed h-screen inset-y-0 left-0 bg-white w-64 border-r shadow-lg transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 md:relative md:w-auto`}>
+        <XIcon className="h-8 w-8 m-5 md:hidden cursor-pointer" onClick={toggleSidebar}/>
 
         <div className="mt-5">
           <div className="flex flex-col items-center">
@@ -65,7 +67,7 @@ function SideBar() {
           </div>
           <div className="flex flex-col items-center justify-center w-full">
           {menuList.map((menu, index) => (
-            <Link href={menu.path} className="w-full">
+            <Link href={menu.path} className="w-full" onClick={toggleSidebar} key={index}>
               <h2 className={`flex gap-2 items-center text-green-500 font-medium p-5 cursor-pointer rounded-md 
               
               hover:text-white hover:bg-green-500 w-full

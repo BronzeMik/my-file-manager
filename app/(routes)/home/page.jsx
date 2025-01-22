@@ -39,7 +39,7 @@ useEffect(() =>{
   }, [user, newFileId])
 
   return (
-    <div>
+    <div className=''>
         <div className='grid grid-cols-1 md:grid-cols-3'>
             <div className='col-span-1 md:col-span-2 bg-gray-100 p-5'>
                 <Home />

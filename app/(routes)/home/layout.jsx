@@ -3,11 +3,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import SideBar from './_components/SideBar'
 import DashboardHeader from './_components/DashboardHeader'
+import { SidebarProvider } from '@/context/SideBarContext'
 
 export const ParentFolderIdContext = createContext();
 export const NewFolderContext = createContext('');
 export const NewFileId = createContext('');
 export const StorageContext = createContext();
+
 
 function layout({children}) {
 
@@ -21,15 +23,17 @@ function layout({children}) {
       <NewFolderContext.Provider value={{newFolderId, setNewFolderId}}>
         <NewFileId.Provider value={{newFileId, setNewFileId}}>
           <StorageContext.Provider value={{storageAmount, setStorageAmount}}>
-          <div>
-              <div className="fixed md:w-64 hidden md:block">
+            
+          <div className=''>
+              <div className="fixed md:w-64 md:block">
                   <SideBar />
               </div>
-              <div className="md:ml-64 ">
+              <div className="md:ml-64">
                   
                   {children}
               </div>
           </div>
+          
           </StorageContext.Provider>
         </NewFileId.Provider>
       </NewFolderContext.Provider>
