@@ -12,9 +12,11 @@ function DashboardHeader() {
   const { toggleSidebar } = useSidebar();
   return (
     <div className=" shadow-md border-b-gray-200 border-2 flex items-center justify-between bg-white">
-      <button className="h-8 w-8 m-5 md:hidden" onClick={toggleSidebar}>
-        <Menu className="w-8 h-8 cursor-pointer" />
-      </button>
+      {pathname.startsWith("/home") && (
+        <button className="h-8 w-8 m-5 md:hidden" onClick={toggleSidebar}>
+          <Menu className="w-8 h-8 cursor-pointer" />
+        </button>
+      )}
 
       <div className="p-5 w-48 md:w-80">
         <a href="/">
